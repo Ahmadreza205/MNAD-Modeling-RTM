@@ -47,7 +47,7 @@ nf = floor(nt/(2*3*max(v(:))/min(v(:)))) ;
 T = floor(nt/nf/2);
 
 % Preallocate storage for the second-time-derivative wavefield snapshots
-% (interior region only, i.e. PML stripped out) — used later for the
+% (interior region only, i.e. PML stripped out) â€” used later for the
 % RTM/LSRTM imaging condition
 [nz,nx] = size(v) ;
 UU = zeros((nz-2*d_pml)*(nx-2*d_pml),2*nf + 1) ;
@@ -164,8 +164,8 @@ if indx == 1
 end
 
 data{1} = datau ;
-data{2} = datav ;
-data{3} = dataw ;
+% data{2} = datav ;   % Use this if you need the lateral gradient of pressure field to be recorded 
+% data{3} = dataw ;   % Use this if you need the vertical gradient of pressure field to be recorded
 
 end
 
