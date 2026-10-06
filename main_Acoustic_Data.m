@@ -107,7 +107,7 @@ rlag = dx ;                                 % Source lag from the sides of model
 
 % Build source/receiver coordinates (in meters) for all shots
 [Source, Receiver] = acquisi(V,dx,dz,zsc,zrc,h_offset,ds,dr,slag,rlag) ;
-ns = length(Source) ;                                   % The number of source shots
+ns = length(Source(1)) ;                                   % The number of source shots
 
 % Preallocate per-shot coordinate cells
 xs = cell(1,ns) ;
