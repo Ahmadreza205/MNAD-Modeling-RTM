@@ -11,6 +11,7 @@ Table 1 compares the machine-independent computational cost and memory usage of 
 
 MNAD is introduced for acoustic RTM in large-scale studies, where compact stencils and coarser grids enable data simulation and high-resolution imaging with significantly reduced computational and memory costs compared to conventional methods. 
 
-
 This study was funded by the National Science Centre,
 Poland, grant no. 2023/51/D/ST10/02603.
+
+This repository contains research code developed for scientific purposes. The implementation is provided as-is and has not been developed as a production seismic-imaging package.
