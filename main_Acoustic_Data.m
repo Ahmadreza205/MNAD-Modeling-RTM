@@ -64,7 +64,7 @@ profile.f_max = f_max ;
 % Compute stable time step [s] and spatial steps [m]
 
 dx = V_min/(2.5*f_max) ;
-dz = dx/2 ;
+dz = dx ;
 % % dx and dz may change regarding your need but must be smaller than what
 % calculated above corresponding maximum velocity and frequency 
 
@@ -139,7 +139,7 @@ profile.w = w ;
 
 %% --- Pad velocity model with PML boundary layers ---
 % Extend the model edges outward by d_pml cells on each side (x then z),
-% by repeating the edge values — this is a common way to build the PML
+% by repeating the edge values â€” this is a common way to build the PML
 % "buffer" region  around the physical domain.
 v = [repmat(V(:,1),1,d_pml) , V , repmat(V(:,end),1,d_pml)] ;
 v = [repmat(v(1,:),d_pml,1) ; v ; repmat(v(end,:),d_pml,1)] ;
