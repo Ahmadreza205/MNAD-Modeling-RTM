@@ -1,20 +1,21 @@
 cff-version: 1.2.0
 title: "Modeling and Reverse Time Migration Using Modified Nearly Analytical Discretization"
-  
-  message: "Researchers using this software are requested to cite the author's work using the DOI below,
-  rather than relying solely on the ORCID iD."
-  
-  doi: "https://doi.org/10.1190/GEO-2025-0665"
-  
+type: software
+
+message: "If you use this software in your research, please cite the associated paper using the DOI provided below."
+
+doi: "10.1190/GEO-2025-0665"
+
 authors:
-- family-names: "Zand"
-  given-names: "Toktam"
-  orcid: "https://orcid.org/0000-0001-9834-0705"
-  
-- family-names: "Zand"
-  given-names: "Ahmadreza"
+  - family-names: "Zand"
+    given-names: "Toktam"
+    orcid: "https://orcid.org/0000-0001-9834-0705"
 
-version: 1.0.0
+  - family-names: "Zand"
+    given-names: "Ahmadreza"
 
-date-released: 2026-10-03
+version: "1.0.0"
+date-released: "2026-10-03"
+
+repository-code: "https://github.com/Ahmadreza205/MNAD-MRTM"
 url: "https://github.com/Ahmadreza205/MNAD-MRTM"
