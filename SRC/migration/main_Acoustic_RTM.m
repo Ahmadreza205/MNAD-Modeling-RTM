@@ -143,7 +143,7 @@ profile.w = w ;
 
 %% --- Pad velocity model with PML boundary layers ---
 % Extend the model edges outward by d_pml cells on each side (x then z),
-% by repeating the edge values — this is a common way to build the PML
+% by repeating the edge values â€” this is a common way to build the PML
 % "buffer" region  around the physical domain.
 v = [repmat(V(:,1),1,d_pml) , V , repmat(V(:,end),1,d_pml)] ;
 v = [repmat(v(1,:),d_pml,1) ; v ; repmat(v(end,:),d_pml,1)] ;
@@ -186,7 +186,7 @@ save data_MNAD_Acoustic data profile
 %% --- Generating the background velocity model --- 
 % Smooth background velocity model is generating with applying the gausiian filter on the original velocity model 
 % Pad velocity model with PML boundary layers by extending the model edges outward by d_pml cells on each side (x then z),
-% by repeating the edge values — this is a common way to build the PML
+% by repeating the edge values â€” this is a common way to build the PML
 % "buffer" region  around the physical domain.
 sindx = 3 ;
 V_s = v_smooth(V,sindx,sindx,sindx) ;
@@ -259,7 +259,7 @@ for ss = 1:ns
 end
 
 load(['./Illuminations/illum_' num2str(0)]) ;
-img_RTM = -mean(mhh,3)./illum ;
+img_RTM = mean(mhh,3)./illum ;
 
 
 save img_RTM_MNAD img_RTM 
