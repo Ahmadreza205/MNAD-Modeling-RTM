@@ -51,8 +51,8 @@ datau = data{1} ;
 
 
 % % --------- Reconstructed receiver-side wavefield state 
-pU_r = zeros(nz,nx) ;       % previous wavefield in time: U^(t-1)
-U_r = zeros(nz,nx) ;        % current wavefield in time: U^(t)
+pU = zeros(nz,nx) ;       % previous wavefield in time: U^(t-1)
+U = zeros(nz,nx) ;        % current wavefield in time: U^(t)
 
 pV = zeros(nz,nx) ;         % previous horizontal gradient field in time: V^(t-1)
 V = zeros(nz,nx) ;          % current horizontal gradient field in time: V^(t)
@@ -101,20 +101,20 @@ for tt = nt:-1:1
         Uz123_gen(W1_zt,W2_zt,W3_zt,W1_zb,W2_zb,W3_zb,W,dz,nz,nx,c1zt,c2zt,c3zt,c1zb,c2zb,c3zb) ;
            
     % --------- Advance the reconstructed receiver-side wavefield one step backward
-    nU_r = reshape(Auu*U_r(:),nz,nx) + reshape(Auv*V(:),nz,nx) + reshape(Auw*W(:),nz,nx) - pU_r - V2dt2.*(U1_x + U1_z) ;
+    nU = reshape(Auu*U(:),nz,nx) + reshape(Auv*V(:),nz,nx) + reshape(Auw*W(:),nz,nx) - pU - V2dt2.*(U1_x + U1_z) ;
     nV = reshape(Avv*V(:),nz,nx) + reshape(Avu*U_r(:),nz,nx) + reshape(Avw*W(:),nz,nx) - pV - V2dt2.*(V1_x + V1_z) ;
     nW = reshape(Aww*W(:),nz,nx) + reshape(Awu*U_r(:),nz,nx) + reshape(Awv*V(:),nz,nx) - pW - V2dt2.*(W1_x + W1_z) ;
 
     % --------- Inject scattered-data residual at receiver locations
     for rr = 1:length(xr)
-        U_r(zr(rr),xr(rr)) = U_r(zr(rr),xr(rr)) + V2dt2(zr(rr),xr(rr)).*datau(tt,rr) ;
+        U(zr(rr),xr(rr)) = U(zr(rr),xr(rr)) + V2dt2(zr(rr),xr(rr)).*datau(tt,rr) ;
     end
 
 
     %     if mod(tt,50)==0, imagesc(U); drawnow; end
     
-    pU_r = U_r ;
-    U_r = nU_r ;
+    pU = U ;
+    U = nU ;
     
     pV = V ;
     V = nV ;
@@ -126,7 +126,7 @@ for tt = nt:-1:1
     % --------- cross-correlate the wavefields every T steps (imaging condition)
     if rem(tt,T) == 0
         US = UU(:,end-ttt+1) ;                                % source-side snapshot, reverse-indexed
-        internal = U_r(d_pml+1:end-d_pml,d_pml+1:end-d_pml) ; % receiver-side field, interior only
+        internal = U(d_pml+1:end-d_pml,d_pml+1:end-d_pml) ; % receiver-side field, interior only
         UR = internal(:) ;
         
         Im = Im + US.*UR ;
