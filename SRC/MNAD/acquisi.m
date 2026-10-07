@@ -35,7 +35,7 @@ function [Source, Receiver] = acquisi(V,dx,dz,zsc,zrc,h_offset,ds,dr,slag,rlag,a
 %                  .xr - {1 x ns} cell, receiver x grid indices per shot
 %                  .zr - {1 x ns} cell, receiver z grid indices per shot
 %                All indices are in the SAME grid-index convention as the
-%                other modes (i.e. not yet converted to meters — this
+%                other modes (i.e. not yet converted to meters â€” this
 %                function still does that conversion at the end).
 %
 %  Outputs:
@@ -61,7 +61,7 @@ if dr == 0, dr = 1 ; end
 switch lower(acqType)
 
     case 'arbitrary'
-        %% Manually specified geometry — bypasses automatic layout entirely
+        %% Manually specified geometry â€” bypasses automatic layout entirely
         if isempty(manualGeom)
             error('acquisi:missingManualGeom', ...
                   'acqType is ''arbitrary'' but manualGeom was not provided.') ;
