@@ -5,7 +5,7 @@ MNAD operates with a compact stencil and maintains stability over long propagati
 
 Table 1 compares the machine-independent computational cost and memory usage of the MNAD with the conventional FD methods. The machine-independent computational cost and memory usage are defined by the total number of operations during the simulation, denoted as N_op, performed at N_x spatial grid points with over N_t time steps, which are controlled by the Courant number and CFL condition:
 
-<img width="1588" height="328" alt="image" src="https://github.com/user-attachments/assets/b11a9294-720a-4bc3-9006-6e735d914384" />
+<img width="662" height="111" alt="table1_forGithub" src="https://github.com/user-attachments/assets/79846e1e-b7e6-47cd-b9bc-b368d014a8c8" />
 
 
 MNAD is introduced for acoustic RTM in large-scale studies, where compact stencils and coarser grids enable data simulation and high-resolution imaging with significantly reduced computational and memory costs compared to conventional methods. 
